@@ -1,19 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import {
+  SearchFormComponent,
+  SearchFormContainerComponent
+} from './components';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
 
-import { ApiService } from './services/api.service';
+import { AppStoreModule } from './app-store.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ListComponent],
-  imports: [BrowserModule, CommonModule, HttpClientModule, HttpModule],
-  providers: [ApiService],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppStoreModule
+  ],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    ListComponent,
+    SearchFormComponent,
+    SearchFormContainerComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

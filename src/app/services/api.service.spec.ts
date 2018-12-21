@@ -1,9 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, inject, TestBed } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
-import { environment } from 'environments/environment';
-import { ApiService } from './api.service';
 
-const API_URL = environment.apiUrl;
+import { ApiService } from './api.service';
 
 describe('ApiService', () => {
   let service: ApiService = null;
@@ -11,7 +9,7 @@ describe('ApiService', () => {
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
     TestBed.configureTestingModule({
-      imports: [HttpModule],
+      imports: [HttpClientTestingModule],
       providers: [ApiService]
     });
   });

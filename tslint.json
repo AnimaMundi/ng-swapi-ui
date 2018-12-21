@@ -29,7 +29,7 @@
     "no-switch-case-fall-through": true,
     "one-line": [true, "check-open-brace"],
     "align": false,
-    "import-blacklist": [true, "rxjs", "rxjs/Rx"],
+    "import-blacklist": [true, "rxjs/Rx"],
     "indent": [true, "spaces"],
     "interface-name": false,
     "no-bitwise": true,

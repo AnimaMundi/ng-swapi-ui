@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/skipWhile';
-import 'rxjs/add/operator/withLatestFrom';
-import 'rxjs/add/operator/zip';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
+
 import { ApiService } from './../services/api.service';
 import { Organism } from './../shared/models/organism.interface';
 
