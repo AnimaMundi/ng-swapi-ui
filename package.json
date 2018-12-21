@@ -16,6 +16,11 @@
     "lint:sass": "stylelint \"src/**/*.scss\" --fix",
     "e2e": "ng e2e"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "@angular/common": "^5.2.6",
     "@angular/compiler": "^5.2.6",
@@ -40,16 +45,20 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "husky": "^1.2.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
-    "karma-chrome-launcher": "~2.2.0",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-mocha-reporter": "^2.2.5",
+    "lint-staged": "^8.1.0",
+    "prettier": "1.15.3",
     "protractor": "~5.1.2",
+    "puppeteer": "^1.11.0",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-scss": "^2.1.0",

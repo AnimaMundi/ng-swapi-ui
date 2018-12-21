@@ -1,4 +1,4 @@
-@import "../../assets/css/variables";
+@import '../../assets/css/variables';
 
 $header-height: 54px;
 $header-video-height: 10px;
@@ -13,10 +13,8 @@ $header-male-height: 20px;
 
 .list-container {
 	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto;
-	grid-template-areas:
-		"results";
+	grid-template: auto auto;
+	grid-template-areas: 'results';
 	grid-gap: $large-spacing;
 	margin-top: $large-spacing;
 }

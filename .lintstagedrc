@@ -1,0 +1,7 @@
+{
+  "linters": {
+    "*.ts": ["tslint --fix", "git add"],
+    "*.scss": ["stylelint --fix", "git add"],
+    "*.{html,ts,js,json,scss,md}": ["prettier --write", "git add"]
+  }
+}

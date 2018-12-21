@@ -11,9 +11,9 @@
 
 .header-container {
 	@extend %container;
+
 	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-flow: row nowrap;
 	justify-content: flex-start;
 	align-content: flex-start;
 	align-items: center;

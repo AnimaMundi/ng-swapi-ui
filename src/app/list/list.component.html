@@ -1,53 +1,45 @@
 <div class="list-container">
-	<div class="list__results">
-		<div *ngIf="!loaded" class="list__results-count">Loading...</div>
+  <div class="list__results">
+    <div *ngIf="!loaded" class="list__results-count">Loading...</div>
 
-		<div *ngIf="loaded && people.length > 0" class="list__results-list">
+    <div *ngIf="loaded && people.length > 0" class="list__results-list">
+      <div class="list__item" *ngFor="let person of people">
+        <!-- HEADER -->
+        <div class="list__item-header">
+          <h6 class="list__item-header-title">{{ person.name }}</h6>
+          <div
+            class="list__item-header-gender"
+            [innerHtml]="person.gender"
+          ></div>
+          <div
+            class="list__item-header-birthyear"
+            [innerHtml]="person.birth_year"
+          ></div>
+        </div>
 
-			<div class="list__item" *ngFor="let person of people">
-
-				<!-- HEADER -->
-				<div class="list__item-header">
-					<h6 class="list__item-header-title">
-						{{ person.name }}
-					</h6>
-					<div class="list__item-header-gender" [innerHtml]="person.gender"></div>
-					<div class="list__item-header-birthyear" [innerHtml]="person.birth_year"></div>
-				</div>
-
-				<ul class="list__item-content">
-					<li class="list__item-content-spec">
-						<span class="item-content-spec__header">
-							Height
-						</span>
-						{{ person.height }}
-					</li>
-					<li class="list__item-content-spec">
-						<span class="item-content-spec__header">
-							Mass
-						</span>
-						{{ person.mass }}
-					</li>
-					<li class="list__item-content-spec">
-						<span class="item-content-spec__header">
-							Hair Color
-						</span>
-						{{ person.hair_color | titlecase }}
-					</li>
-					<li class="list__item-content-spec">
-						<span class="item-content-spec__header">
-							Skin Color
-						</span>
-						{{ person.skin_color | titlecase }}
-					</li>
-					<li class="list__item-content-spec">
-						<span class="item-content-spec__header">
-							Eye Color
-						</span>
-						{{ person.eye_color | titlecase }}
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <ul class="list__item-content">
+          <li class="list__item-content-spec">
+            <span class="item-content-spec__header"> Height </span>
+            {{ person.height }}
+          </li>
+          <li class="list__item-content-spec">
+            <span class="item-content-spec__header"> Mass </span>
+            {{ person.mass }}
+          </li>
+          <li class="list__item-content-spec">
+            <span class="item-content-spec__header"> Hair Color </span>
+            {{ person.hair_color | titlecase }}
+          </li>
+          <li class="list__item-content-spec">
+            <span class="item-content-spec__header"> Skin Color </span>
+            {{ person.skin_color | titlecase }}
+          </li>
+          <li class="list__item-content-spec">
+            <span class="item-content-spec__header"> Eye Color </span>
+            {{ person.eye_color | titlecase }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,7 +5,9 @@ html {
 	box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*::before,
+*::after {
 	box-sizing: inherit;
 }
 
@@ -16,7 +18,8 @@ body {
 	font-size: 14px;
 }
 
-[class^="icon__"], [class*=" icon__"] {
+[class^='icon__'],
+[class*=' icon__'] {
 	display: inline-block;
 	width: 1em;
 	height: 1em;

@@ -1,12 +1,12 @@
 // COLORS
-$white: #fff;
-$black: #1a1a1a;
-$blue: #003f60; // navbar
-$lightblue: #0d6fa1; // filters
-$teal: #12a99c; // search button
-$lightgrey: #f8f8f8;
-$grey: #d9d9d9;
-$medgrey: #4a4a4a;
+$white: rgb(255, 255, 255);
+$black: rgb(26, 26, 26);
+$blue: rgb(0, 63, 96); // navbar
+$lightblue: rgb(13, 111, 161); // filters
+$teal: rgb(18, 169, 156); // search button
+$lightgrey: rgb(248, 248, 248);
+$grey: rgb(217, 217, 217);
+$medgrey: rgb(74, 74, 74);
 
 $small-spacing: 8px;
 $medium-spacing: 16px;
@@ -19,8 +19,8 @@ $large-spacing: 24px;
 }
 
 @mixin clearfix {
-	&:after {
-		content: "";
+	&::after {
+		content: '';
 		display: table;
 		clear: both;
 	}

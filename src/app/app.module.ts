@@ -11,13 +11,9 @@ import { ListComponent } from './list/list.component';
 import { ApiService } from './services/api.service';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		HeaderComponent,
-		ListComponent
-	],
-	imports: [BrowserModule, CommonModule, HttpClientModule, HttpModule],
-	providers: [ApiService],
-	bootstrap: [AppComponent]
+  declarations: [AppComponent, HeaderComponent, ListComponent],
+  imports: [BrowserModule, CommonModule, HttpClientModule, HttpModule],
+  providers: [ApiService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
