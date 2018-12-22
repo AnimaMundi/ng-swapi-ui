@@ -1,4 +1,5 @@
 <app-search-form
   [searchQuery]="searchQuery$ | async"
   (searchQueryChange)="onSearchQueryChanged($event)"
+  (searchFormSubmit)="onSearchFormSubmitted()"
 ></app-search-form>

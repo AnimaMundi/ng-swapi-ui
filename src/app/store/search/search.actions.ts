@@ -1,7 +1,8 @@
 import { Action } from '@ngrx/store';
 
 export enum SearchAction {
-  SearchQueryChanged = '[Search] Search Query Changed'
+  SearchQueryChanged = '[Search] Search Query Changed',
+  SearchFormSubmitted = '[Search] Search Form Submitted'
 }
 
 export class SearchQueryChangedAction implements Action {
@@ -10,4 +11,10 @@ export class SearchQueryChangedAction implements Action {
   constructor(public readonly payload: string) {}
 }
 
-export type SearchActionType = SearchQueryChangedAction;
+export class SearchFormSubmittedAction implements Action {
+  public readonly type = SearchAction.SearchFormSubmitted;
+}
+
+export type SearchActionType =
+  | SearchQueryChangedAction
+  | SearchFormSubmittedAction;

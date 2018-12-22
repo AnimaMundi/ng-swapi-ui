@@ -16,6 +16,12 @@ describe('SearchFormComponent', () => {
   const getSearchQueryInput = () =>
     domHelper.findByCss<HTMLInputElement>('[name=searchQuery]');
 
+  const getSearchButton = () =>
+    domHelper.findByCss<HTMLButtonElement>('[type=submit]');
+
+  const getSearchForm = () =>
+    domHelper.findByCss<HTMLFormElement>('form.search-form');
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule],
@@ -46,28 +52,49 @@ describe('SearchFormComponent', () => {
     });
 
     it('should not emit changes', () => {
-      const onSearchQueryChangedMock = jasmine.createSpy(
-        'onSearchQueryChanged'
-      );
-      component.searchQueryChange.subscribe(onSearchQueryChangedMock);
+      const onSearchQueryChangedSpy = jasmine.createSpy('onSearchQueryChanged');
+      component.searchQueryChange.subscribe(onSearchQueryChangedSpy);
       component.searchQuery = searchQuery;
       fixture.detectChanges();
 
-      expect(onSearchQueryChangedMock).not.toHaveBeenCalled();
+      expect(onSearchQueryChangedSpy).not.toHaveBeenCalled();
     });
   });
 
   describe('searchQueryChange', () => {
     it('should emit the value of the search input when it changes', () => {
-      const onSearchQueryChangedMock = jasmine.createSpy(
-        'onSearchQueryChanged'
-      );
-      component.searchQueryChange.subscribe(onSearchQueryChangedMock);
+      const onSearchQueryChangedSpy = jasmine.createSpy('onSearchQueryChanged');
+      component.searchQueryChange.subscribe(onSearchQueryChangedSpy);
       const searchQueryInput = getSearchQueryInput();
       domHelper.setInputValue(searchQueryInput, searchQuery);
       fixture.detectChanges();
 
-      expect(onSearchQueryChangedMock).toHaveBeenCalledWith(searchQuery);
+      expect(onSearchQueryChangedSpy).toHaveBeenCalledWith(searchQuery);
+    });
+  });
+
+  describe('searchFormSubmit', () => {
+    let onSearchFormSubmittedSpy: jasmine.Spy;
+
+    beforeEach(() => {
+      onSearchFormSubmittedSpy = jasmine.createSpy('onSearchFormSubmitted');
+      component.searchFormSubmit.subscribe(onSearchFormSubmittedSpy);
+    });
+
+    it('should emit when the form is submitted', () => {
+      const form = getSearchForm();
+      form.dispatchEvent(new Event('ngSubmit'));
+      fixture.detectChanges();
+
+      expect(onSearchFormSubmittedSpy).toHaveBeenCalled();
+    });
+
+    it('should emit when the search button is clicked', () => {
+      const searchButton = getSearchButton();
+      searchButton.click();
+      fixture.detectChanges();
+
+      expect(onSearchFormSubmittedSpy).toHaveBeenCalled();
     });
   });
 });

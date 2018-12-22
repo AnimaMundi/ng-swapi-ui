@@ -1,0 +1,50 @@
+@import '../../../assets/css/variables';
+
+.search-form {
+	margin-top: $large-spacing;
+
+	&__row {
+		display: flex;
+	}
+
+	&__label {
+		margin: $small-spacing 0;
+	}
+
+	&__input {
+		@include transition(border);
+
+		border: 2px solid $grey;
+		border-right-width: 0;
+		padding: $small-spacing;
+		width: 100%;
+
+		&:focus {
+			outline: none;
+			border-color: $input-focus;
+		}
+	}
+
+	&__button {
+		@include transition(background-color);
+
+		appearance: none;
+		background-color: $teal;
+		border: none;
+		padding: $small-spacing $medium-spacing;
+
+		&:hover {
+			background-color: $input-hover;
+			cursor: pointer;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&:focus,
+		&:active {
+			background-color: $input-focus;
+		}
+	}
+}

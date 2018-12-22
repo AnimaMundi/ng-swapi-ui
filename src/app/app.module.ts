@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {
+  ContentWrapperComponent,
   SearchFormComponent,
   SearchFormContainerComponent
 } from './components';
@@ -27,6 +28,7 @@ import { AppStoreModule } from './app-store.module';
     AppComponent,
     HeaderComponent,
     ListComponent,
+    ContentWrapperComponent,
     SearchFormComponent,
     SearchFormContainerComponent
   ],

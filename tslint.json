@@ -24,6 +24,7 @@
     "use-output-property-decorator": true,
     "use-pipe-transform-interface": true,
     // General
+    "max-classes-per-file": false,
     "arrow-parens": false,
     "no-non-null-assertion": true,
     "no-switch-case-fall-through": true,

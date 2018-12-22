@@ -8,6 +8,15 @@ $lightgrey: rgb(248, 248, 248);
 $grey: rgb(217, 217, 217);
 $medgrey: rgb(74, 74, 74);
 
+$input-hover: darken(
+	$color: $teal,
+	$amount: 5
+);
+$input-focus: darken(
+	$color: $teal,
+	$amount: 10
+);
+
 $small-spacing: 8px;
 $medium-spacing: 16px;
 $large-spacing: 24px;
@@ -16,6 +25,10 @@ $large-spacing: 24px;
 	max-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+@mixin transition($transition-property) {
+	transition: $transition-property ease-in-out .2s;
 }
 
 @mixin clearfix {

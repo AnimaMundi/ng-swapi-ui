@@ -3,7 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 
 import { AppState } from '@store/app';
-import { SearchQueryChangedAction } from '@store/search';
+import {
+  SearchFormSubmittedAction,
+  SearchQueryChangedAction
+} from '@store/search';
 import { mockStore } from '@test';
 
 import { SearchFormContainerComponent } from './search-form-container.component';
@@ -43,6 +46,16 @@ describe('SearchFormContainerComponent', () => {
 
       expect(store$.dispatch).toHaveBeenCalledWith(
         new SearchQueryChangedAction(searchQuery)
+      );
+    });
+  });
+
+  describe('onSearchFormSubmitted', () => {
+    it('should dispatch a SearchFormSubmittedAction', () => {
+      component.onSearchFormSubmitted();
+
+      expect(store$.dispatch).toHaveBeenCalledWith(
+        new SearchFormSubmittedAction()
       );
     });
   });
