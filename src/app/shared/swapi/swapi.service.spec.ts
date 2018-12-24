@@ -5,8 +5,15 @@ import {
 import { TestBed } from '@angular/core/testing';
 
 import { environment } from '@env';
+import { PeopleApiResponse } from '@shared/models';
+import { mockPerson } from '@test';
 
 import { SwapiService } from './swapi.service';
+
+const res: PeopleApiResponse = {
+  count: 1,
+  results: [mockPerson]
+};
 
 describe('SwapiService', () => {
   let service: SwapiService;
@@ -46,7 +53,7 @@ describe('SwapiService', () => {
       expect(testRequest.request.params.get('search')).toEqual(searchQuery);
       expect(testRequest.request.params.get('page')).toEqual(String(page));
 
-      testRequest.flush({});
+      testRequest.flush(res);
     });
   });
 });

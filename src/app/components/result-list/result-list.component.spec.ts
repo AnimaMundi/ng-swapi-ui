@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HeightModule } from '@shared/height';
+import { WeightModule } from '@shared/weight';
 import { DomHelper, mockPerson } from '@test';
 
 import { ResultListComponent } from './result-list.component';
@@ -15,6 +17,7 @@ describe('ResultListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HeightModule, WeightModule],
       declarations: [ResultListComponent]
     }).compileComponents();
   }));

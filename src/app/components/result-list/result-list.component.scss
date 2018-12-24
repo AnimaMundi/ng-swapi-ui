@@ -27,7 +27,8 @@ $header-height: 54px;
 		align-items: stretch;
 
 		&-title,
-		&-title :link {
+		&-title :link,
+		&-title :visited {
 			font-weight: 400;
 			padding: $medium-spacing 0 $medium-spacing $medium-spacing;
 			font-size: 18px;

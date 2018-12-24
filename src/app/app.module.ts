@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HeightModule } from '@shared/height';
+import { WeightModule } from '@shared/weight';
+
+import { AppStoreModule } from './app-store.module';
 import { AppComponent } from './app.component';
 import {
   ContentWrapperComponent,
@@ -14,8 +18,6 @@ import {
   SearchFormContainerComponent
 } from './components';
 
-import { AppStoreModule } from './app-store.module';
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -23,7 +25,9 @@ import { AppStoreModule } from './app-store.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppStoreModule
+    AppStoreModule,
+    HeightModule,
+    WeightModule
   ],
   declarations: [
     AppComponent,

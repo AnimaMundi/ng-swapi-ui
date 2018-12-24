@@ -3,7 +3,11 @@
 <ng-container *ngIf="!isLoading">
   <div class="list__item" *ngFor="let result of results">
     <div class="list__item-header">
-      <h6 class="list__item-header-title">{{ result.name }}</h6>
+      <h6 class="list__item-header-title">
+        <a [href]="result.url" target="_blank" rel="noopener noreferrer">{{
+          result.name
+        }}</a>
+      </h6>
       <div class="list__item-header-gender">{{ result.gender }}</div>
       <div class="list__item-header-birthyear">{{ result.birth_year }}</div>
     </div>
@@ -11,11 +15,11 @@
     <ul class="list__item-content">
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Height </span>
-        {{ result.height }}
+        {{ result.height | height }}
       </li>
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Mass </span>
-        {{ result.mass }}
+        {{ result.mass | weight }}
       </li>
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Hair Color </span>

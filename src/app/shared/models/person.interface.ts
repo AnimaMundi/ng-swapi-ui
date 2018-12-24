@@ -4,8 +4,8 @@ export interface Person {
   eye_color: string;
   gender: string;
   hair_color: string;
-  height: string;
-  mass: string;
+  height: number;
+  mass: number;
   skin_color: string;
   homeworld: string;
   films: string[];
