@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://swapi.co/api/people'
+  swapi: {
+    rootUrl: 'https://swapi.co/api'
+  }
 };

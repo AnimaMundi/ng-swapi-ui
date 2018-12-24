@@ -5,11 +5,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '@env';
 import { appReducer } from '@store/app';
+import { SearchResultEffects } from '@store/search-results';
 
 @NgModule({
   imports: [
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([SearchResultEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ]
 })

@@ -1,26 +1,21 @@
-import { AppState } from '../app';
-import { getSearchQuery, selectSearchState } from './search.selectors';
+import { mockState } from '@test';
 
-const state: AppState = {
-  search: {
-    query: 'searchQuery'
-  }
-};
+import { getSearchQuery, selectSearchState } from './search.selectors';
 
 describe('SearchSelectors', () => {
   describe('selectSearchState', () => {
     it('should select search state', () => {
-      const result = selectSearchState(state);
+      const result = selectSearchState(mockState);
 
-      expect(result).toEqual(state.search);
+      expect(result).toEqual(mockState.search);
     });
   });
 
   describe('getSearchQuery', () => {
     it('should select searchQuery', () => {
-      const result = getSearchQuery(state);
+      const result = getSearchQuery(mockState);
 
-      expect(result).toEqual(state.search.query);
+      expect(result).toEqual(mockState.search.query);
     });
   });
 });

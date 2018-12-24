@@ -1,0 +1,82 @@
+@import '../../../assets/css/variables';
+
+$header-height: 54px;
+
+:host {
+	display: block;
+	padding-top: $large-spacing;
+}
+
+.list {
+	&__loader {
+		padding: $small-spacing;
+		padding-left: 0;
+		font-size: 12px;
+		color: $medgrey;
+	}
+
+	&__item {
+		background: $white;
+		margin-bottom: $large-spacing;
+	}
+
+	&__item-header {
+		height: $header-height;
+		border-bottom: 1px solid $grey;
+		display: flex;
+		align-items: stretch;
+
+		&-title,
+		&-title :link {
+			font-weight: 400;
+			padding: $medium-spacing 0 $medium-spacing $medium-spacing;
+			font-size: 18px;
+			color: $blue;
+			flex: 4 0;
+			margin: 0;
+		}
+
+		&-gender,
+		&-birthyear {
+			display: flex;
+			align-items: center;
+			justify-self: center;
+			padding: $medium-spacing;
+			color: $medgrey;
+			font-weight: 200;
+		}
+
+		&-gender {
+			border-right: 1px solid $grey;
+			color: $blue;
+			font-weight: 900;
+		}
+	}
+
+	&__item-content {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-start;
+		list-style-type: none;
+		padding: 0;
+		padding-left: $medium-spacing;
+		margin: 0;
+		width: 100%;
+
+		&-spec {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-around;
+			padding: $medium-spacing;
+			flex-basis: 20%;
+
+			&-header {
+				font-size: 14px;
+				color: $medgrey;
+				text-decoration: underline;
+				display: block;
+				font-weight: 200;
+			}
+		}
+	}
+}

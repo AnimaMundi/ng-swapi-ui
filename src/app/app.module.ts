@@ -7,11 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {
   ContentWrapperComponent,
+  HeaderComponent,
+  ResultListComponent,
+  ResultListContainerComponent,
   SearchFormComponent,
   SearchFormContainerComponent
 } from './components';
-import { HeaderComponent } from './header/header.component';
-import { ListComponent } from './list/list.component';
 
 import { AppStoreModule } from './app-store.module';
 
@@ -27,7 +28,8 @@ import { AppStoreModule } from './app-store.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    ListComponent,
+    ResultListComponent,
+    ResultListContainerComponent,
     ContentWrapperComponent,
     SearchFormComponent,
     SearchFormContainerComponent

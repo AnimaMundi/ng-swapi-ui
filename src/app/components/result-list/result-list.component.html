@@ -1,0 +1,34 @@
+<div *ngIf="isLoading" class="list__loader">Loading...</div>
+
+<ng-container *ngIf="!isLoading">
+  <div class="list__item" *ngFor="let result of results">
+    <div class="list__item-header">
+      <h6 class="list__item-header-title">{{ result.name }}</h6>
+      <div class="list__item-header-gender">{{ result.gender }}</div>
+      <div class="list__item-header-birthyear">{{ result.birth_year }}</div>
+    </div>
+
+    <ul class="list__item-content">
+      <li class="list__item-content-spec">
+        <span class="list__item-content-spec-header"> Height </span>
+        {{ result.height }}
+      </li>
+      <li class="list__item-content-spec">
+        <span class="list__item-content-spec-header"> Mass </span>
+        {{ result.mass }}
+      </li>
+      <li class="list__item-content-spec">
+        <span class="list__item-content-spec-header"> Hair Color </span>
+        {{ result.hair_color | titlecase }}
+      </li>
+      <li class="list__item-content-spec">
+        <span class="list__item-content-spec-header"> Skin Color </span>
+        {{ result.skin_color | titlecase }}
+      </li>
+      <li class="list__item-content-spec">
+        <span class="list__item-content-spec-header"> Eye Color </span>
+        {{ result.eye_color | titlecase }}
+      </li>
+    </ul>
+  </div>
+</ng-container>

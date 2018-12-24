@@ -7,7 +7,7 @@ import {
   SearchFormSubmittedAction,
   SearchQueryChangedAction
 } from '@store/search';
-import { mockStore } from '@test';
+import { mockReducer, mockStore } from '@test';
 
 import { SearchFormContainerComponent } from './search-form-container.component';
 
@@ -20,7 +20,7 @@ describe('SearchFormContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot({})],
+      imports: [StoreModule.forRoot(mockReducer)],
       declarations: [SearchFormContainerComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
