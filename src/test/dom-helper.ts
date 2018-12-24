@@ -22,10 +22,6 @@ export class DomHelper<T> {
       : [];
   }
 
-  public collapseWhitespace(textContent: string): string {
-    return textContent.replace(/\s+/g, ' ').trim();
-  }
-
   public setInputValue(inputElement: HTMLInputElement, value: string): void {
     inputElement.value = value;
     inputElement.dispatchEvent(new Event('input'));

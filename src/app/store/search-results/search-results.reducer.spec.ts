@@ -15,6 +15,27 @@ import {
 } from './search-results.state';
 
 describe('SearchResultsReducer', () => {
+  describe('Initial state', () => {
+    it('should initialize state if its not provided', () => {
+      const action = { type: 'type' };
+
+      const result = searchResultsReducer(undefined, action as any);
+
+      expect(result).toEqual(initialSearchResultsState);
+    });
+  });
+
+  describe('Unrecognized action', () => {
+    it('should return the current state untouched', () => {
+      const action = { type: 'type' };
+      const state: SearchResultsState = initialSearchResultsState;
+
+      const result = searchResultsReducer(state, action as any);
+
+      expect(result).toEqual(state);
+    });
+  });
+
   describe('GetSearchResultsAction', () => {
     it('should set isLoading to true', () => {
       const action = new GetSearchResultsAction();
