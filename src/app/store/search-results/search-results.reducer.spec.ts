@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { PeopleApiResponse } from '@shared/models';
+import { ApiResponse, Person } from '@shared/models';
 import { mockPerson } from '@test';
 
 import {
@@ -55,7 +55,7 @@ describe('SearchResultsReducer', () => {
 
   describe('GetSearchResultsSuccessAction', () => {
     it('should set isLoading, total and results', () => {
-      const payload: PeopleApiResponse = {
+      const payload: ApiResponse<Person> = {
         count: 10,
         results: [mockPerson]
       };

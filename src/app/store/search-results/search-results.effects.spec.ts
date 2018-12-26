@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jasmine';
 
-import { PeopleApiResponse } from '@shared/models';
+import { ApiResponse, Person } from '@shared/models';
 import { SwapiService } from '@shared/swapi';
 import {
   MockActions,
@@ -116,7 +116,7 @@ describe('SearchResultsEffects', () => {
 
   describe('getSearchResults$', () => {
     let action: GetSearchResultsAction;
-    let res: PeopleApiResponse;
+    let res: ApiResponse<Person>;
 
     beforeEach(() => {
       action = new GetSearchResultsAction();

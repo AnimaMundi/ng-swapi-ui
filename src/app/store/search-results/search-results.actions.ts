@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Action } from '@ngrx/store';
 
-import { PeopleApiResponse } from '@shared/models';
+import { ApiResponse, Person } from '@shared/models';
 
 export enum SearchResultsAction {
   GetSearchResults = '[Search Results] Get Search Results',
@@ -16,7 +16,7 @@ export class GetSearchResultsAction implements Action {
 export class GetSearchResultsSuccessAction implements Action {
   public readonly type = SearchResultsAction.GetSearchResultsSuccess;
 
-  constructor(public readonly payload: PeopleApiResponse) {}
+  constructor(public readonly payload: ApiResponse<Person>) {}
 }
 
 export class GetSearchResultsFailureAction implements Action {

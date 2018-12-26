@@ -1,15 +1,13 @@
-import { Planet } from './planet.type';
-
-export interface Person {
+export interface ApiPerson {
   name: string;
   birth_year: string;
   eye_color: string;
   gender: string;
   hair_color: string;
-  height: number;
-  mass: number;
+  height: string;
+  mass: string;
   skin_color: string;
-  homeworld: Planet;
+  homeworld: string;
   films: string[];
   species: string[];
   starships: string[];

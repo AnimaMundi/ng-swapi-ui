@@ -17,21 +17,30 @@
         <span class="list__item-content-spec-header"> Height </span>
         {{ result.height | height }}
       </li>
+
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Mass </span>
         {{ result.mass | weight }}
       </li>
+
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Hair Color </span>
         {{ result.hair_color | titlecase }}
       </li>
+
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Skin Color </span>
         {{ result.skin_color | titlecase }}
       </li>
+
       <li class="list__item-content-spec">
         <span class="list__item-content-spec-header"> Eye Color </span>
         {{ result.eye_color | titlecase }}
+      </li>
+
+      <li class="list__item-content-spec">
+        <span class="list__item-content-spec-header"> Home World </span>
+        {{ result.homeworld.name | titlecase }}
       </li>
     </ul>
   </div>

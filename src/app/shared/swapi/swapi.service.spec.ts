@@ -5,14 +5,19 @@ import {
 import { TestBed } from '@angular/core/testing';
 
 import { environment } from '@env';
-import { PeopleApiResponse } from '@shared/models';
-import { mockPerson } from '@test';
+import { ApiPerson, ApiPlanet, ApiResponse } from '@shared/models';
+import { mockApiPerson, mockPlanet } from '@test';
 
 import { SwapiService } from './swapi.service';
 
-const res: PeopleApiResponse = {
+const personRes: ApiResponse<ApiPerson> = {
   count: 1,
-  results: [mockPerson]
+  results: [mockApiPerson]
+};
+
+const planetRes: ApiResponse<ApiPlanet> = {
+  count: 1,
+  results: [mockPlanet]
 };
 
 describe('SwapiService', () => {
@@ -45,15 +50,25 @@ describe('SwapiService', () => {
 
       service.getPeople(searchQuery, page).subscribe();
 
-      const testRequest = httpTestingController.expectOne(
+      const personTestRequest = httpTestingController.expectOne(
         req => req.url === `${environment.swapi.rootUrl}/people`
       );
+      personTestRequest.flush(personRes);
 
-      expect(testRequest.request.method).toEqual('GET');
-      expect(testRequest.request.params.get('search')).toEqual(searchQuery);
-      expect(testRequest.request.params.get('page')).toEqual(String(page));
+      const planetTestRquest = httpTestingController.expectOne(
+        mockApiPerson.homeworld
+      );
+      planetTestRquest.flush(planetRes);
 
-      testRequest.flush(res);
+      expect(personTestRequest.request.method).toEqual('GET');
+      expect(personTestRequest.request.params.get('search')).toEqual(
+        searchQuery
+      );
+      expect(personTestRequest.request.params.get('page')).toEqual(
+        String(page)
+      );
+
+      expect(planetTestRquest.request.method).toEqual('GET');
     });
   });
 });

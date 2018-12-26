@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 import { environment } from '@env';
-import { PeopleApiResponse } from '@shared/models';
-import { map } from 'rxjs/operators';
+import { ApiPerson, ApiPlanet, ApiResponse, Person } from '@shared/models';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class SwapiService {
@@ -15,23 +15,32 @@ export class SwapiService {
   public getPeople(
     search: string,
     page: number
-  ): Observable<PeopleApiResponse> {
+  ): Observable<ApiResponse<Person>> {
     return this.httpClient
-      .get<PeopleApiResponse>(`${this.rootUrl}/people`, {
+      .get<ApiResponse<ApiPerson>>(`${this.rootUrl}/people`, {
         params: {
           search,
           page: String(page)
         }
       })
       .pipe(
-        map(res => ({
-          ...res,
-          results: res.results.map(result => ({
-            ...result,
-            mass: Number(result.mass),
-            weight: Number(result.mass)
-          }))
-        }))
+        switchMap(people =>
+          forkJoin(
+            people.results.map(({ homeworld }) =>
+              this.httpClient.get<ApiPlanet>(homeworld)
+            )
+          ).pipe(
+            map(planets => ({
+              ...people,
+              results: people.results.map((result, index) => ({
+                ...result,
+                homeworld: planets[index],
+                mass: Number(result.mass),
+                height: Number(result.height)
+              }))
+            }))
+          )
+        )
       );
   }
 }
