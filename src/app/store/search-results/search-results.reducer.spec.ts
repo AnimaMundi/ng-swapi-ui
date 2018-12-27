@@ -38,7 +38,7 @@ describe('SearchResultsReducer', () => {
 
   describe('GetSearchResultsAction', () => {
     it('should set isLoading to true', () => {
-      const action = new GetSearchResultsAction();
+      const action = new GetSearchResultsAction(1);
       const state: SearchResultsState = {
         ...initialSearchResultsState,
         isLoading: false
@@ -57,7 +57,10 @@ describe('SearchResultsReducer', () => {
     it('should set isLoading, total and results', () => {
       const payload: ApiResponse<Person> = {
         count: 10,
-        results: [mockPerson]
+        results: [mockPerson],
+        page: 1,
+        previous: null,
+        next: null
       };
       const state: SearchResultsState = {
         ...initialSearchResultsState,

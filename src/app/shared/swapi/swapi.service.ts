@@ -32,6 +32,7 @@ export class SwapiService {
           ).pipe(
             map(planets => ({
               ...people,
+              page,
               results: people.results.map((result, index) => ({
                 ...result,
                 homeworld: planets[index],

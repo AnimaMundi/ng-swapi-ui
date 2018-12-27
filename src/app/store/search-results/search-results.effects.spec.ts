@@ -18,6 +18,8 @@ import {
 import { AppState } from '../app';
 import {
   getSearchQuery,
+  NextPageClickedAction,
+  PrevPageClickedAction,
   SearchActionType,
   SearchFormSubmittedAction
 } from '../search';
@@ -104,7 +106,7 @@ describe('SearchResultsEffects', () => {
       'should dispatch a GetSearchResultsAction',
       marbles(m => {
         const action = new SearchFormSubmittedAction();
-        const completion = new GetSearchResultsAction();
+        const completion = new GetSearchResultsAction(searchResultPage);
         const expected = m.cold('c', { c: completion });
 
         mockActions.setSource(m.cold('a', { a: action }));
@@ -114,15 +116,46 @@ describe('SearchResultsEffects', () => {
     );
   });
 
+  describe('triggerGetPrevResults$', () => {
+    it(
+      'should dispatch a GetSearchResultsAction with the previous page',
+      marbles(m => {
+        const action = new PrevPageClickedAction();
+        const completion = new GetSearchResultsAction(searchResultPage - 1);
+        const expected = m.cold('c', { c: completion });
+
+        mockActions.setSource(m.cold('a', { a: action }));
+
+        m.expect(effects.triggerGetPrevResults$).toBeObservable(expected);
+      })
+    );
+  });
+
+  describe('triggerGetNextResults$', () => {
+    it(
+      'should dispatch a GetSearchResultsAction with the next page',
+      marbles(m => {
+        const action = new NextPageClickedAction();
+        const completion = new GetSearchResultsAction(searchResultPage + 1);
+        const expected = m.cold('c', { c: completion });
+
+        mockActions.setSource(m.cold('a', { a: action }));
+
+        m.expect(effects.triggerGetNextResults$).toBeObservable(expected);
+      })
+    );
+  });
+
   describe('getSearchResults$', () => {
     let action: GetSearchResultsAction;
     let res: ApiResponse<Person>;
 
     beforeEach(() => {
-      action = new GetSearchResultsAction();
+      action = new GetSearchResultsAction(searchResultPage);
       res = {
         count: 10,
-        results: new Array(10).fill(mockPerson)
+        results: new Array(10).fill(mockPerson),
+        page: searchResultPage
       };
     });
 

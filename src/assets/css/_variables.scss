@@ -8,14 +8,17 @@ $lightgrey: rgb(248, 248, 248);
 $grey: rgb(217, 217, 217);
 $medgrey: rgb(74, 74, 74);
 
-$input-hover: darken(
-	$color: $teal,
+$input-color: $white;
+$input-bg: $teal;
+$input-bg-hover: darken(
+	$color: $input-bg,
 	$amount: 5
 );
-$input-focus: darken(
-	$color: $teal,
+$input-bg-focus: darken(
+	$color: $input-bg,
 	$amount: 10
 );
+$input-bg-disabled: $medgrey;
 
 $small-spacing: 8px;
 $medium-spacing: 16px;

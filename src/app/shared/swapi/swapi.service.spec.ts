@@ -12,12 +12,14 @@ import { SwapiService } from './swapi.service';
 
 const personRes: ApiResponse<ApiPerson> = {
   count: 1,
-  results: [mockApiPerson]
+  results: [mockApiPerson],
+  page: 1
 };
 
 const planetRes: ApiResponse<ApiPlanet> = {
   count: 1,
-  results: [mockPlanet]
+  results: [mockPlanet],
+  page: 1
 };
 
 describe('SwapiService', () => {

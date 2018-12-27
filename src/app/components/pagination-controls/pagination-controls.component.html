@@ -1,0 +1,20 @@
+<ng-container *ngIf="prev || next">
+  <button
+    class="btn"
+    id="pagination-controls__btn-prev"
+    [class.btn--disabled]="!prev"
+    [disabled]="!prev"
+    (click)="onPrevClicked()"
+  >
+    Previous
+  </button>
+  <button
+    class="btn"
+    id="pagination-controls__btn-next"
+    [class.btn--disabled]="!next"
+    [disabled]="!next"
+    (click)="onNextClicked()"
+  >
+    Next
+  </button>
+</ng-container>

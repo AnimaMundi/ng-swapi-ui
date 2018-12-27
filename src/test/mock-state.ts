@@ -10,6 +10,8 @@ export const mockState: AppState = {
     isLoading: false,
     page: 1,
     results: [mockPerson],
-    total: 1
+    total: 1,
+    prev: null,
+    next: null
   }
 };

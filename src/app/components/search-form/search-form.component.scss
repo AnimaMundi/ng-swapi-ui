@@ -21,30 +21,7 @@
 
 		&:focus {
 			outline: none;
-			border-color: $input-focus;
-		}
-	}
-
-	&__button {
-		@include transition(background-color);
-
-		appearance: none;
-		background-color: $teal;
-		border: none;
-		padding: $small-spacing $medium-spacing;
-
-		&:hover {
-			background-color: $input-hover;
-			cursor: pointer;
-		}
-
-		&:focus {
-			outline: none;
-		}
-
-		&:focus,
-		&:active {
-			background-color: $input-focus;
+			border-color: $input-bg-focus;
 		}
 	}
 }

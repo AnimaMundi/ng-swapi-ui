@@ -7,11 +7,15 @@ export interface SearchResultsState {
   page: number;
   isLoading: boolean;
   results: Person[];
+  next: string;
+  prev: string;
 }
 
 export const initialSearchResultsState: SearchResultsState = {
   total: 0,
   page: 1,
   isLoading: false,
-  results: []
+  results: [],
+  next: null,
+  prev: null
 };

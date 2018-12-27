@@ -15,6 +15,8 @@ import { SwapiService } from '@shared/swapi';
 import { AppState } from '../app';
 import {
   getSearchQuery,
+  NextPageClickedAction,
+  PrevPageClickedAction,
   SearchAction,
   SearchFormSubmittedAction
 } from '../search';
@@ -31,18 +33,30 @@ export class SearchResultEffects {
   @Effect()
   public triggerGetSearchResults$ = this.actions$.pipe(
     ofType<SearchFormSubmittedAction>(SearchAction.SearchFormSubmitted),
-    mapTo(new GetSearchResultsAction())
+    withLatestFrom(this.store$.pipe(select(getSearchResultPage))),
+    map(([_, currentPage]) => new GetSearchResultsAction(currentPage))
+  );
+
+  @Effect()
+  public triggerGetPrevResults$ = this.actions$.pipe(
+    ofType<PrevPageClickedAction>(SearchAction.PrevPageClicked),
+    withLatestFrom(this.store$.pipe(select(getSearchResultPage))),
+    map(([_, currentPage]) => new GetSearchResultsAction(currentPage - 1))
+  );
+
+  @Effect()
+  public triggerGetNextResults$ = this.actions$.pipe(
+    ofType<NextPageClickedAction>(SearchAction.NextPageClicked),
+    withLatestFrom(this.store$.pipe(select(getSearchResultPage))),
+    map(([_, currentPage]) => new GetSearchResultsAction(currentPage + 1))
   );
 
   @Effect()
   public getSearchResults$ = this.actions$.pipe(
     ofType<GetSearchResultsAction>(SearchResultsAction.GetSearchResults),
-    withLatestFrom(
-      this.store$.pipe(select(getSearchQuery)),
-      this.store$.pipe(select(getSearchResultPage))
-    ),
-    switchMap(([_, searchQuery, currentPage]) =>
-      this.swapiService.getPeople(searchQuery, currentPage).pipe(
+    withLatestFrom(this.store$.pipe(select(getSearchQuery))),
+    switchMap(([{ payload }, searchQuery]) =>
+      this.swapiService.getPeople(searchQuery, payload).pipe(
         map(res => new GetSearchResultsSuccessAction(res)),
         catchError(err => of(new GetSearchResultsFailureAction(err)))
       )

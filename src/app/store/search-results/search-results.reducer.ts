@@ -15,7 +15,9 @@ export const searchResultsReducer = (
     case SearchResultsAction.GetSearchResults:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        prev: null,
+        next: null
       };
 
     case SearchResultsAction.GetSearchResultsSuccess:
@@ -23,7 +25,10 @@ export const searchResultsReducer = (
         ...state,
         isLoading: false,
         total: action.payload.count,
-        results: action.payload.results
+        results: action.payload.results,
+        next: action.payload.next,
+        prev: action.payload.previous,
+        page: action.payload.page
       };
 
     case SearchResultsAction.GetSearchResultsFailure:

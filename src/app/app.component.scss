@@ -27,3 +27,36 @@ body {
 	stroke: currentColor;
 	fill: currentColor;
 }
+
+.btn {
+	@include transition(background-color);
+
+	appearance: none;
+	background-color: $input-bg;
+	border: none;
+	color: $input-color;
+	padding: $small-spacing $medium-spacing;
+
+	&:hover {
+		background-color: $input-bg-hover;
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus,
+	&:active {
+		background-color: $input-bg-focus;
+	}
+
+	&--disabled {
+		background-color: $input-bg-disabled;
+
+		&:hover {
+			background-color: $input-bg-disabled;
+			cursor: not-allowed;
+		}
+	}
+}

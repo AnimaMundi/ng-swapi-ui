@@ -35,6 +35,16 @@ export const getIsSearchResultLoading = createSelector(
   prop('isLoading')
 );
 
+export const getNextResultPage = createSelector(
+  selectSearchResultsState,
+  prop('next')
+);
+
+export const getPrevResultPage = createSelector(
+  selectSearchResultsState,
+  prop('prev')
+);
+
 export const getSearchResultCount = createSelector(
   getSearchResult,
   calculateSearchResultCount

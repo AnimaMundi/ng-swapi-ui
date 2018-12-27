@@ -11,6 +11,8 @@ export enum SearchResultsAction {
 
 export class GetSearchResultsAction implements Action {
   public readonly type = SearchResultsAction.GetSearchResults;
+
+  constructor(public readonly payload: number) {}
 }
 
 export class GetSearchResultsSuccessAction implements Action {

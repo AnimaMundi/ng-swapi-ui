@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import {
   ContentWrapperComponent,
   HeaderComponent,
+  PaginationControlsComponent,
+  PaginationControlsContainerComponent,
   ResultListComponent,
   ResultListContainerComponent,
   SearchFormComponent,
@@ -32,6 +34,8 @@ import {
   declarations: [
     AppComponent,
     HeaderComponent,
+    PaginationControlsComponent,
+    PaginationControlsContainerComponent,
     ResultListComponent,
     ResultListContainerComponent,
     ContentWrapperComponent,

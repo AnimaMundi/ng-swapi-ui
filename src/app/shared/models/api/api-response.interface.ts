@@ -3,4 +3,5 @@ export interface ApiResponse<T> {
   next?: string;
   previous?: string;
   results: T[];
+  page: number;
 }
