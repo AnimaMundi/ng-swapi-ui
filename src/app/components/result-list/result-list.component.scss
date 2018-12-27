@@ -1,40 +1,37 @@
 @import '../../../assets/css/variables';
 
 $header-height: 54px;
+$result-border: 1px solid $grey;
 
 :host {
 	display: block;
-	padding-top: $large-spacing;
+	padding-top: $medium-spacing;
 }
 
 .list {
-	&__loader {
-		padding: $small-spacing;
-		padding-left: 0;
-		font-size: 12px;
-		color: $medgrey;
-	}
-
 	&__item {
 		background: $white;
-		margin-bottom: $large-spacing;
+		margin-bottom: $medium-spacing;
 	}
 
 	&__item-header {
 		height: $header-height;
-		border-bottom: 1px solid $grey;
+		border-bottom: $result-border;
 		display: flex;
 		align-items: stretch;
+
+		&-title {
+			padding: $medium-spacing;
+			flex: 1;
+			margin: 0;
+		}
 
 		&-title,
 		&-title :link,
 		&-title :visited {
 			font-weight: 400;
-			padding: $medium-spacing 0 $medium-spacing $medium-spacing;
 			font-size: 18px;
 			color: $blue;
-			flex: 4 0;
-			margin: 0;
 		}
 
 		&-gender,
@@ -48,7 +45,7 @@ $header-height: 54px;
 		}
 
 		&-gender {
-			border-right: 1px solid $grey;
+			border-right: $result-border;
 			color: $blue;
 			font-weight: 900;
 		}
@@ -56,20 +53,29 @@ $header-height: 54px;
 
 	&__item-content {
 		display: flex;
-		flex-flow: row nowrap;
-		justify-content: flex-start;
+		flex-flow: column nowrap;
+		justify-content: space-between;
 		list-style-type: none;
 		padding: 0;
-		padding-left: $medium-spacing;
 		margin: 0;
 		width: 100%;
 
+		@include gt-xs {
+			flex-direction: row;
+		}
+
 		&-spec {
 			display: flex;
-			flex-flow: column nowrap;
-			justify-content: space-around;
+			flex-wrap: nowrap;
+			justify-content: space-between;
 			padding: $medium-spacing;
-			flex-basis: 20%;
+			border-bottom: $result-border;
+
+			@include gt-xs {
+				flex-direction: column;
+				justify-content: space-around;
+				border: none;
+			}
 
 			&-header {
 				font-size: 14px;

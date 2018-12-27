@@ -2,28 +2,18 @@
 
 :host {
 	display: block;
-	width: 100%;
 	background-color: $blue;
 	box-shadow: 0 1px 6px rgba($blue, .5);
-	position: relative;
-	z-index: 1;
+	padding: $medium-spacing;
 }
 
 .header-container {
 	@extend %container;
-
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: flex-start;
-	align-content: flex-start;
-	align-items: center;
-	padding: $small-spacing $medium-spacing $small-spacing 0;
 }
 
 .header-logo {
 	width: 64px;
 	height: 30px;
-	margin-left: $small-spacing;
 
 	img {
 		width: inherit;

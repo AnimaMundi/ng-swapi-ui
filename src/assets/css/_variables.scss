@@ -24,6 +24,11 @@ $small-spacing: 8px;
 $medium-spacing: 16px;
 $large-spacing: 24px;
 
+$screen-sm-min: 600px;
+$screen-md-min: 960px;
+$screen-lg-min: 1000px;
+$screen-xl-min: 1280px;
+
 %container {
 	max-width: 1000px;
 	margin-left: auto;
@@ -32,6 +37,36 @@ $large-spacing: 24px;
 
 @mixin transition($transition-property) {
 	transition: $transition-property ease-in-out .2s;
+}
+
+@mixin gt-media($min-width) {
+	@media (min-width: $min-width) {
+		@content;
+	}
+}
+
+@mixin gt-xs {
+	@include gt-media($screen-sm-min) {
+		@content;
+	}
+}
+
+@mixin gt-sm {
+	@include gt-media($screen-md-min) {
+		@content;
+	}
+}
+
+@mixin gt-md {
+	@include gt-media($screen-lg-min) {
+		@content;
+	}
+}
+
+@mixin gt-lg {
+	@include gt-media($screen-xl-min) {
+		@content;
+	}
 }
 
 @mixin clearfix {

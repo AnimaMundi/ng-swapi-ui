@@ -1,19 +1,12 @@
 {
   "extends": "stylelint-config-standard",
-  "plugins": [
-    "stylelint-scss",
-    "stylelint-selector-bem-pattern"
-  ],
-  "ignoreFiles": [
-    "src/**/_normalize.scss"
-  ],
+  "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
+  "ignoreFiles": ["src/**/_normalize.scss"],
   "rules": {
     "color-named": [
       "never",
       {
-        "ignore": [
-          "inside-function"
-        ]
+        "ignore": ["inside-function"]
       }
     ],
     "color-no-hex": true,
@@ -29,16 +22,15 @@
           "each",
           "extend",
           "include",
-          "mixin"
+          "mixin",
+          "content"
         ]
       }
     ],
     "max-nesting-depth": [
       3,
       {
-        "ignoreAtRules": [
-          "include"
-        ]
+        "ignoreAtRules": ["include"]
       }
     ],
     "number-leading-zero": "never",
@@ -55,9 +47,7 @@
     "selector-type-no-unknown": [
       true,
       {
-        "ignore": [
-          "custom-elements"
-        ]
+        "ignore": ["custom-elements"]
       }
     ],
     "value-no-vendor-prefix": true

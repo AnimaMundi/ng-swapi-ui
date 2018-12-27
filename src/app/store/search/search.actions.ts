@@ -1,10 +1,15 @@
 import { Action } from '@ngrx/store';
 
 export enum SearchAction {
+  SearchInitialized = '[Search] Search Initialized',
   SearchQueryChanged = '[Search] Search Query Changed',
   SearchFormSubmitted = '[Search] Search Form Submitted',
   PrevPageClicked = '[Search] Previous Page Clicked',
   NextPageClicked = '[Search] Next Page Clicked'
+}
+
+export class SearchInitializedAction implements Action {
+  public readonly type = SearchAction.SearchInitialized;
 }
 
 export class SearchQueryChangedAction implements Action {
@@ -26,6 +31,7 @@ export class NextPageClickedAction implements Action {
 }
 
 export type SearchActionType =
+  | SearchInitializedAction
   | SearchQueryChangedAction
   | SearchFormSubmittedAction
   | PrevPageClickedAction

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { GenderIconModule } from '@shared/gender-icon';
 import { HeightModule } from '@shared/height';
 import { WeightModule } from '@shared/weight';
 
@@ -28,6 +29,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     AppStoreModule,
+    GenderIconModule,
     HeightModule,
     WeightModule
   ],

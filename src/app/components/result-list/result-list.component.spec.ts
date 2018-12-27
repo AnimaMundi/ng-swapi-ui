@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { GenderIconModule } from '@shared/gender-icon';
 import { HeightModule } from '@shared/height';
 import { WeightModule } from '@shared/weight';
 import { DomHelper, mockPerson } from '@test';
@@ -11,13 +12,13 @@ describe('ResultListComponent', () => {
   let fixture: ComponentFixture<ResultListComponent>;
   let domHelper: DomHelper<ResultListComponent>;
 
-  const getLoadingElement = () => domHelper.findByCss('.list__loader');
+  const getLoadingElement = () => domHelper.findByCss('#result-list__loader');
 
   const getResultElements = () => domHelper.findAllByCss('.list__item');
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HeightModule, WeightModule],
+      imports: [HeightModule, WeightModule, GenderIconModule],
       declarations: [ResultListComponent]
     }).compileComponents();
   }));

@@ -1,4 +1,6 @@
-<div *ngIf="isLoading" class="list__loader">Loading...</div>
+<ng-container *ngIf="isLoading"
+  ><span id="result-list__loader"> Loading... </span></ng-container
+>
 
 <ng-container *ngIf="!isLoading">
   <div class="list__item" *ngFor="let result of results">
@@ -8,7 +10,9 @@
           result.name
         }}</a>
       </h6>
-      <div class="list__item-header-gender">{{ result.gender }}</div>
+      <div class="list__item-header-gender">
+        <i [class]="result.gender | genderIcon"></i>
+      </div>
       <div class="list__item-header-birthyear">{{ result.birth_year }}</div>
     </div>
 

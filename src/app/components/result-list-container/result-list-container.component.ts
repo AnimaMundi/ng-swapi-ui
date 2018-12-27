@@ -4,6 +4,7 @@ import { AppState } from '@store/app';
 import { Observable } from 'rxjs';
 
 import { Person } from '@shared/models';
+import { SearchInitializedAction } from '@store/search';
 import {
   getIsSearchResultLoading,
   getSearchResult
@@ -23,5 +24,7 @@ export class ResultListContainerComponent implements OnInit {
   public ngOnInit(): void {
     this.isLoading$ = this.store$.pipe(select(getIsSearchResultLoading));
     this.results$ = this.store$.pipe(select(getSearchResult));
+
+    this.store$.dispatch(new SearchInitializedAction());
   }
 }
